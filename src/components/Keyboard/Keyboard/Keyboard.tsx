@@ -2,17 +2,30 @@ import KeyRow from "../KeyRow/KeyRow"
 import { bottomRow, middleRow, topRow } from "../constants/KeyLetters"
 import { KeyboardWrapper } from "./Keyboard.styles"
 
-const Keyboard = () => {
+interface KeyboardProps {
+    addLetter: (letter: string) => void;
+}
+
+const Keyboard = ({ addLetter }: KeyboardProps) => {
     return (
         <KeyboardWrapper>
             {
-                <KeyRow row={topRow} />
+                <KeyRow
+                    addLetter={addLetter}
+                    row={topRow}
+                />
             }
             {
-                <KeyRow row={middleRow} />
+                <KeyRow
+                    addLetter={addLetter}
+                    row={middleRow}
+                />
             }
             {
-                <KeyRow row={bottomRow} />
+                <KeyRow
+                    addLetter={addLetter}
+                    row={bottomRow}
+                />
             }
         </KeyboardWrapper>
     )
