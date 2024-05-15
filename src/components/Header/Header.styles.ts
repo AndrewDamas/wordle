@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const HeaderWrapper = styled.div({
-    height: "66px",
+    height: "65px",
     width: "100vw",
     display: "flex",
     alignItems: "center",
