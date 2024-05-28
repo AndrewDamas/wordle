@@ -14,6 +14,7 @@ const KeyRow = ({ row, addLetter }: KeyRowProps) => {
                     <Key
                         letter={i}
                         addLetter={() => addLetter(i) }
+                        key={i}
                     />
                 )
             }

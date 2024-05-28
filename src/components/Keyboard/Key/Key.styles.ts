@@ -2,12 +2,19 @@ import styled from "@emotion/styled";
 
 interface KeyWrapperProps {
     isEnterOrBack: boolean;
+    isGreen: boolean;
+    isYellow: boolean;
+    isGuessedAlready: boolean;
 }
 
-export const KeyWrapper = styled.button<KeyWrapperProps>(({ isEnterOrBack }) => ({
+export const KeyWrapper = styled.button<KeyWrapperProps>(({ isEnterOrBack, isGreen, isYellow, isGuessedAlready }) => ({
     height: "58px",
     width: isEnterOrBack ? "65px" : "43px",
-    backgroundColor: "#D3D6DA",
+    backgroundColor: 
+        isGuessedAlready ? "#787C7E"
+        : isGreen ? "#6AAA64"
+        : isYellow ? "#C9B458"
+        : "#D3D6DA",
     color: "black",
     borderRadius: "4px",
     display: "flex",

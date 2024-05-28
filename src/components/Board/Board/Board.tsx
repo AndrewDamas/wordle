@@ -1,16 +1,26 @@
-// import { useState } from "react"
 import { BoardWrapper } from "./Board.styles"
 import TileRow from "../TileRow/TileRow"
+import { useSelector } from "react-redux"
+import { RootState } from "../../../stores/application.store"
 
 const Board = () => {
 
-    // const [guesses, setGuesses] = useState([])
+    const guesses = useSelector((state: RootState) => state.wordData.guesses)
+    const currentGuessNumber = useSelector((state: RootState) => state.wordData.currentGuessNumber)
 
     return (
         <BoardWrapper>
             {
-                [1, 2, 3, 4, 5].map((i) => 
-                    <TileRow key={i}/>
+                guesses.map((i, index) => 
+                    <TileRow
+                        key={index}
+                        word={i}
+                        isAlreadyGuessed={
+                            currentGuessNumber <= 5
+                            ? guesses.findIndex(guess => guess === guesses[currentGuessNumber - 1]) > index
+                            : true
+                        }
+                    />
                 )
             }
         </BoardWrapper>
